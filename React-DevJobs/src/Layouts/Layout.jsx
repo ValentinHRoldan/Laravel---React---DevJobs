@@ -1,7 +1,7 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 
-export default function Layout() {
+export default function Layout({children}) {
   return (
     <div class="min-h-screen bg-gray-100 dark:bg-gray-900 text-white">
         <header class="bg-white dark:bg-gray-800 shadow">
@@ -10,7 +10,7 @@ export default function Layout() {
             </div>
         </header>
     <main>
-        Contenido Principal
+        {children}
     </main>
     </div>
   )
