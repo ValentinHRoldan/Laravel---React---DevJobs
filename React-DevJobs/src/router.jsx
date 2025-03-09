@@ -4,6 +4,7 @@ import Navigation from './Layouts/Navigation';
 import AuthLayout from './Layouts/AuthLayout';
 import Login from './views/Login';
 import Register from './views/Register';
+import CrearVacante from './views/CrearVacante';
 
 const router = createBrowserRouter([
     {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
             {
                 index:true,
                 element:<Navigation/>,
+            },
+            {
+                path:'/crear',
+                element:<CrearVacante/>
             }
         ]
 
