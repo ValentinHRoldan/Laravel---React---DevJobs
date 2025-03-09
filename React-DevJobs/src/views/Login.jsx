@@ -22,27 +22,15 @@ export default function Login() {
                 <div class="mt-4">
                     <InputLabel htmlFor='password' $value={'Contraseña'}/>
                     <Input id="password" type="password" name="password" required autofocus/>
-                    {/* <x-input-label for="password" :value="__('Contraseña')" />
-
-                    <x-text-input id="password" class="block mt-1 w-full"
-                                    type="password"
-                                    name="password"
-                                    required autocomplete="current-password" />
-
-                    <x-input-error :messages="$errors->get('password')" class="mt-2" /> */}
                 </div>
                 <div class="flex justify-between my-4">
-                    <EnlaceLinea link={'/auth/register'}>Crear Cuenta</EnlaceLinea>
+                    <EnlaceLinea link={'/auth/register'}>¿No tenés cuenta? Crea tu Cuenta</EnlaceLinea>
                 </div>
                 <PrimaryButton>
                     Iniciar Sesion
                 </PrimaryButton>
-                {/* <x-primary-button class="w-full justify-center">
-                    {{ __('Iniciar Sesion') }}
-                </x-primary-button> */}
             </form>        
         </div>
     </div>
-
   )
 }
