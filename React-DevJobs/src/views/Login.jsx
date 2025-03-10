@@ -14,13 +14,13 @@ export default function Login() {
                 <p class="text-center text-white text-2xl mt-1 mb-5">Login</p>
                 {/* <!-- Email Address --> */}
                 <div>
-                    <InputLabel htmlFor='email' $value={'Correo'}/>
-                    <Input id="email" type="email" name="email" required autofocus/>
+                    <InputLabel htmlFor={'email'} $value={'Correo'}/>
+                    <Input id={"email"} type={"email"} name={"email"} required autofocus/>
                 </div>
 
                 {/* <!-- Password --> */}
                 <div class="mt-4">
-                    <InputLabel htmlFor='password' $value={'Contraseña'}/>
+                    <InputLabel htmlFor={'password'} $value={'Contraseña'}/>
                     <Input id="password" type="password" name="password" required autofocus/>
                 </div>
                 <div class="flex justify-between my-4">
