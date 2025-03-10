@@ -1,26 +1,40 @@
 import React from 'react'
 import Enlace from '../components/Enlace'
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
+import { useEffect } from 'react'
 
 export default function Navigation() {
+    const [activo, setActivo] = useState(false);
+
+    const handleClickActivo = ()=>{
+        setActivo(!activo);
+        console.log(activo);
+    }
+
+    useEffect(()=>{
+        setActivo(false)
+    }, []);
+
+
     return (
         <nav class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-16">
                     <div class="flex">
-                        <div class="shrink-0 flex items-center">
+                        <div class="shrink-0 flex items-center" onClick={handleClickActivo}>
                             <Link to={'/'}>
                                 <p className='block h-9 text-3xl w-auto fill-current text-gray-800 dark:text-gray-200'>
                                     Dev<span class="font-extrabold">Jobs</span> 
                                 </p>
                             </Link>
                         </div>
-                        <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                            <a href="" className='inline-flex items-center px-1 pt-1 border-b-2 border-indigo-400 dark:border-indigo-600 text-sm font-medium leading-5 text-gray-900 dark:text-gray-100 focus:outline-none focus:border-indigo-700 transition duration-150 ease-in-out'>Mis Vacantes</a>
+                        <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex" onClick={handleClickActivo}>
+                            <Enlace link={'/'} activo={!activo}>Mis Vacantes</Enlace>
                         </div>
     
-                        <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                            <Enlace link={'/crear'}>Crear Vacante</Enlace>
+                        <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex" onClick={handleClickActivo}>
+                            <Enlace link={'/vacantes/crear'} activo={activo} >Crear Vacante</Enlace>
                         </div>
                     </div>
     
