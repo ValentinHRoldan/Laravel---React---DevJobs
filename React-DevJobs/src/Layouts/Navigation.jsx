@@ -5,17 +5,20 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 
 export default function Navigation() {
-    const [activo, setActivo] = useState(false);
+    const [activoVacante, setActivoVacante] = useState(false);
+    const [activoCrearVacante, setActivoCrearVacante] = useState(false);
 
-    const handleClickActivo = ()=>{
-        setActivo(!activo);
-        console.log(activo);
+    const handleClickActivo = (e)=>{
+        console.log(e.target.innerText)
+        if(e.target.innerText === "Mis Vacantes" || e.target.innerText === "DevJobs" || e.target.innerText === "Jobs"){
+            setActivoCrearVacante(false)
+            return setActivoVacante(true);
+        }
+        else if(e.target.innerText === "Crear Vacante"){
+            setActivoVacante(false);
+            return setActivoCrearVacante(true);
+        }
     }
-
-    useEffect(()=>{
-        setActivo(false)
-    }, []);
-
 
     return (
         <nav class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
@@ -30,11 +33,11 @@ export default function Navigation() {
                             </Link>
                         </div>
                         <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex" onClick={handleClickActivo}>
-                            <Enlace link={'/'} activo={!activo}>Mis Vacantes</Enlace>
+                            <Enlace link={'/'} activo={activoVacante}>Mis Vacantes</Enlace>
                         </div>
     
                         <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex" onClick={handleClickActivo}>
-                            <Enlace link={'/vacantes/crear'} activo={activo} >Crear Vacante</Enlace>
+                            <Enlace link={'/vacantes/crear'} activo={activoCrearVacante} >Crear Vacante</Enlace>
                         </div>
                     </div>
     
